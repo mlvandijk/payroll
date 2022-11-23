@@ -41,7 +41,9 @@ class EmployeeController {
 
         EntityModel<Employee> entityModel = assembler.toModel(repository.save(newEmployee));
 
-        return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(entityModel);
+        return ResponseEntity
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(entityModel);
     }
 
     @GetMapping("/employees/{id}")
@@ -67,7 +69,9 @@ class EmployeeController {
 
         EntityModel<Employee> entityModel = assembler.toModel(updatedEmployee);
 
-        return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(entityModel);
+        return ResponseEntity
+                .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(entityModel);
     }
 
     @DeleteMapping("/employees/{id}")
